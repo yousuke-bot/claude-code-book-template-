@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勇者の試練 - ドラゴンクエスト風RPG</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #1a0a00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'MS Gothic', 'Osaka-Mono', 'Courier New', monospace;
+    }
+
+    #game {
+      width: 480px;
+      border: 3px solid #8b6914;
+      background: #050200;
+    }
+
+    canvas { display: block; width: 100%; }
+
+    #enemy-name {
+      text-align: center;
+      padding: 6px;
+      background: #100800;
+      color: #ffcc44;
+      font-size: 15px;
+      border-bottom: 2px solid #3a2000;
+      min-height: 30px;
+    }
+
+    #stats-bar {
+      padding: 8px 16px;
+      background: #0d0500;
+      border-bottom: 2px solid #3a2000;
+      color: #f0d090;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #aa8855;
+      margin-bottom: 5px;
+    }
+
+    .stat-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 3px 0;
+      font-size: 13px;
+    }
+
+    .stat-label { width: 24px; color: #aa8855; flex-shrink: 0; }
+    .stat-value { width: 64px; text-align: right; flex-shrink: 0; font-size: 12px; }
+
+    .bar-bg {
+      flex: 1;
+      height: 10px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .hp-bg { background: #440000; }
+    .mp-bg { background: #000044; }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+    .hp-fill { background: #00cc44; }
+    .mp-fill { background: #4488ff; }
+
+    #battle-log {
+      height: 90px;
+      overflow-y: auto;
+      padding: 6px 12px;
+      background: #030100;
+      border-bottom: 2px solid #3a2000;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    #battle-log p { color: #aa8855; margin: 0; }
+    #battle-log p.cur  { color: #f0d090; }
+    #battle-log p.dmg  { color: #ffff66; }
+    #battle-log p.heal { color: #66ff88; }
+    #battle-log p.bad  { color: #ff6655; }
+    #battle-log p.lv   { color: #ffff00; }
+    #battle-log p.gold { color: #ffcc44; }
+
+    #commands {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      padding: 6px;
+      background: #180c00;
+    }
+
+    .cmd-btn {
+      padding: 10px 8px;
+      background: #251200;
+      border: 2px solid #6b4a0a;
+      color: #f0d090;
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.1s;
+      letter-spacing: 0.05em;
+    }
+    .cmd-btn:hover:not(:disabled) { background: #3a1f00; border-color: #ffcc44; }
+    .cmd-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    #sub-menu {
+      display: none;
+      flex-direction: column;
+      padding: 4px 6px;
+      background: #100800;
+      border-top: 1px solid #3a2000;
+      gap: 2px;
+    }
+    #sub-menu.open { display: flex; }
+    #sub-menu .cmd-btn { font-size: 12px; padding: 7px 10px; }
+  </style>
+</head>
+<body>
+  <div id="game">
+    <canvas id="scene" width="480" height="200"></canvas>
+    <div id="enemy-name">—</div>
+    <div id="stats-bar">
+      <div class="info-row">
+        <span>勇者  Lv.<span id="lv">1</span></span>
+        <span>EXP <span id="exp">0</span> / <span id="next-exp">10</span></span>
+        <span>やくそう ×<span id="item-count">3</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">HP</span>
+        <div class="bar-bg hp-bg"><div class="bar-fill hp-fill" id="hp-bar" style="width:100%"></div></div>
+        <span class="stat-value"><span id="hp">25</span> / <span id="max-hp">25</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">MP</span>
+        <div class="bar-bg mp-bg"><div class="bar-fill mp-fill" id="mp-bar" style="width:100%"></div></div>
+        <span class="stat-value"><span id="mp">8</span> / <span id="max-mp">8</span></span>
+      </div>
+    </div>
+    <div id="battle-log"></div>
+    <div id="commands">
+      <button class="cmd-btn" id="btn-attack">たたかう</button>
+      <button class="cmd-btn" id="btn-magic">じゅもん</button>
+      <button class="cmd-btn" id="btn-item">どうぐ</button>
+      <button class="cmd-btn" id="btn-run">にげる</button>
+    </div>
+    <div id="sub-menu"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -8,6 +8,26 @@
     },
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "postCreateCommand": ".devcontainer/post_create.sh"
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "ゲームサーバー",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": ".devcontainer/post_create.sh",
+  "postStartCommand": "npx http-server . -p 8080 --silent &",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.LiveServer",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  }
 }
 

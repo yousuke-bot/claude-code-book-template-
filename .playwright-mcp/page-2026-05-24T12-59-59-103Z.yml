@@ -1,0 +1,21 @@
+- generic [ref=e2]:
+  - generic [ref=e4]: おおがらす があらわれた！
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7]: 勇者 Lv.1
+      - generic [ref=e8]: EXP 0 / 10
+      - generic [ref=e9]: やくそう ×3
+    - generic [ref=e10]:
+      - generic [ref=e11]: HP
+      - generic [ref=e14]: 25 / 25
+    - generic [ref=e15]:
+      - generic [ref=e16]: MP
+      - generic [ref=e19]: 8 / 8
+  - generic [ref=e20]:
+    - paragraph [ref=e21]: 旅人よ、戦いの準備はよいか？
+    - paragraph [ref=e22]: おおがらす があらわれた！
+  - generic [ref=e23]:
+    - button "たたかう" [ref=e24] [cursor=pointer]
+    - button "じゅもん" [ref=e25] [cursor=pointer]
+    - button "どうぐ" [ref=e26] [cursor=pointer]
+    - button "にげる" [ref=e27] [cursor=pointer]

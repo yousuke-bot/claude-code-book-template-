@@ -1,0 +1,245 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "AMIE" [ref=e3] [cursor=pointer]:
+      - /url: "#hero"
+    - list [ref=e4]:
+      - listitem [ref=e5]:
+        - link "Menu" [ref=e6] [cursor=pointer]:
+          - /url: "#menu"
+      - listitem [ref=e7]:
+        - link "Gallery" [ref=e8] [cursor=pointer]:
+          - /url: "#gallery"
+      - listitem [ref=e9]:
+        - link "Staff" [ref=e10] [cursor=pointer]:
+          - /url: "#staff"
+      - listitem [ref=e11]:
+        - link "Access" [ref=e12] [cursor=pointer]:
+          - /url: "#access"
+    - link "ご予約" [ref=e13] [cursor=pointer]:
+      - /url: tel:03-0000-0000
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - paragraph [ref=e16]: Hair Salon in Omotesando, Tokyo
+      - heading "あなたの美しさを、 もっと自由に。" [level=1] [ref=e17]:
+        - text: あなたの
+        - emphasis [ref=e18]: 美しさ
+        - text: を、
+        - text: もっと自由に。
+      - paragraph [ref=e19]:
+        - text: 表参道のひっそりとした路地に佇む美容室 AMIE。
+        - text: 丁寧なカウンセリングと確かな技術で、
+        - text: あなただけのスタイルをつくります。
+      - generic [ref=e20]:
+        - link "ご予約はこちら" [ref=e21] [cursor=pointer]:
+          - /url: tel:03-0000-0000
+        - link "メニューを見る" [ref=e22] [cursor=pointer]:
+          - /url: "#menu"
+    - generic [ref=e23]:
+      - img "美容師がお客様の髪をスタイリングしている様子" [ref=e24]
+      - generic [ref=e25]:
+        - generic [ref=e26]: "12"
+        - generic [ref=e27]: Years of Experience
+  - generic [ref=e29]:
+    - generic [ref=e30]:
+      - paragraph [ref=e31]: Service & Price
+      - heading "メニュー・料金" [level=2] [ref=e32]
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]: ✂️
+        - generic [ref=e37]: カット
+        - paragraph [ref=e38]: 骨格・顔型・ライフスタイルに合わせた丁寧なカットで、毎朝のスタイリングを楽に。
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: カット
+            - generic [ref=e42]: ¥6,600
+          - generic [ref=e43]:
+            - generic [ref=e44]: カット＋シャンプー
+            - generic [ref=e45]: ¥7,700
+          - generic [ref=e46]:
+            - generic [ref=e47]: 前髪カット
+            - generic [ref=e48]: ¥1,650
+      - generic [ref=e49]:
+        - generic [ref=e50]: 🎨
+        - generic [ref=e51]: カラー
+        - paragraph [ref=e52]: ダメージを最小限に抑えながら、透明感と艶のある発色を実現するトリートメントカラー。
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - generic [ref=e55]: ワンカラー
+            - generic [ref=e56]: ¥8,800〜
+          - generic [ref=e57]:
+            - generic [ref=e58]: ハイライト
+            - generic [ref=e59]: ¥13,200〜
+          - generic [ref=e60]:
+            - generic [ref=e61]: グラデーション
+            - generic [ref=e62]: ¥16,500〜
+      - generic [ref=e63]:
+        - generic [ref=e64]: 🌊
+        - generic [ref=e65]: パーマ
+        - paragraph [ref=e66]: やわらかなウェーブから無造作なカールまで。低ダメージ処方でふわっと軽い仕上がりに。
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]: デジタルパーマ
+            - generic [ref=e70]: ¥17,600〜
+          - generic [ref=e71]:
+            - generic [ref=e72]: コールドパーマ
+            - generic [ref=e73]: ¥14,300〜
+          - generic [ref=e74]:
+            - generic [ref=e75]: 縮毛矯正
+            - generic [ref=e76]: ¥22,000〜
+      - generic [ref=e77]:
+        - generic [ref=e78]: 💆
+        - generic [ref=e79]: トリートメント
+        - paragraph [ref=e80]: 髪の内部から集中ケア。サロン専売品を使った贅沢なトリートメントで艶やかな髪へ。
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - generic [ref=e83]: ベーシック
+            - generic [ref=e84]: ¥3,300〜
+          - generic [ref=e85]:
+            - generic [ref=e86]: プレミアム
+            - generic [ref=e87]: ¥6,600〜
+          - generic [ref=e88]:
+            - generic [ref=e89]: ヘッドスパ
+            - generic [ref=e90]: ¥5,500〜
+      - generic [ref=e91]:
+        - generic [ref=e92]: 💍
+        - generic [ref=e93]: ブライダル
+        - paragraph [ref=e94]: 大切な一日のために。ヘアセットからメイクまで、トータルでサポートします。
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e97]: ヘアセット
+            - generic [ref=e98]: ¥11,000〜
+          - generic [ref=e99]:
+            - generic [ref=e100]: 着付け＋セット
+            - generic [ref=e101]: ¥19,800〜
+          - generic [ref=e102]:
+            - generic [ref=e103]: 前撮り対応
+            - generic [ref=e104]: ¥16,500〜
+      - generic [ref=e105]:
+        - generic [ref=e106]: ✨
+        - generic [ref=e107]: セット・スタイリング
+        - paragraph [ref=e108]: パーティーや発表会など、特別なシーンに合わせたアップスタイル・ダウンスタイルをご提案。
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - generic [ref=e111]: ハーフアップ
+            - generic [ref=e112]: ¥5,500〜
+          - generic [ref=e113]:
+            - generic [ref=e114]: アップスタイル
+            - generic [ref=e115]: ¥8,800〜
+          - generic [ref=e116]:
+            - generic [ref=e117]: 編み込みアレンジ
+            - generic [ref=e118]: ¥6,600〜
+    - paragraph [ref=e119]: ※ 表示価格は税込です。髪の長さ・量により価格が変わる場合があります。
+  - generic [ref=e121]:
+    - generic [ref=e122]:
+      - paragraph [ref=e123]: Works
+      - heading "ギャラリー" [level=2] [ref=e124]
+    - generic [ref=e126]:
+      - generic [ref=e127]:
+        - img "カラースタイル" [ref=e128]
+        - generic [ref=e130]: Color
+      - generic [ref=e131]:
+        - img "カットスタイル" [ref=e132]
+        - generic [ref=e134]: Cut
+      - generic [ref=e135]:
+        - img "パーマスタイル" [ref=e136]
+        - generic [ref=e138]: Perm
+      - generic [ref=e139]:
+        - img "トリートメント" [ref=e140]
+        - generic [ref=e142]: Treatment
+      - generic [ref=e143]:
+        - img "スタイリング" [ref=e144]
+        - generic [ref=e146]: Styling
+  - generic [ref=e148]:
+    - generic [ref=e149]:
+      - paragraph [ref=e150]: Our Team
+      - heading "スタッフ紹介" [level=2] [ref=e151]
+    - generic [ref=e153]:
+      - generic [ref=e154]:
+        - img "スタイリスト 中村 葵" [ref=e156]
+        - paragraph [ref=e157]: Top Stylist
+        - heading "中村 葵" [level=3] [ref=e158]
+        - paragraph [ref=e159]: Aoi Nakamura
+        - paragraph [ref=e160]: London と NY でのサロン修行を経て帰国。トレンドと普遍的な美しさを融合させたスタイルが得意。骨格矯正カットには定評がある。
+        - generic [ref=e161]:
+          - generic [ref=e162]: カット
+          - generic [ref=e163]: カラー
+          - generic [ref=e164]: 骨格矯正
+      - generic [ref=e165]:
+        - img "カラースペシャリスト 田中 彩" [ref=e167]
+        - paragraph [ref=e168]: Color Specialist
+        - heading "田中 彩" [level=3] [ref=e169]
+        - paragraph [ref=e170]: Aya Tanaka
+        - paragraph [ref=e171]: カラーリングの専門家として10年以上のキャリア。透明感のある外国人風カラーや、ダメージレスの技術を追求し続けている。
+        - generic [ref=e172]:
+          - generic [ref=e173]: ハイライト
+          - generic [ref=e174]: グラデーション
+          - generic [ref=e175]: ケアカラー
+      - generic [ref=e176]:
+        - img "スタイリスト 山本 茜" [ref=e178]
+        - paragraph [ref=e179]: Stylist
+        - heading "山本 茜" [level=3] [ref=e180]
+        - paragraph [ref=e181]: Akane Yamamoto
+        - paragraph [ref=e182]: パーマとアレンジアップが得意なスタイリスト。ブライダルヘアも数多く担当。お客様の笑顔のために丁寧なカウンセリングを心がける。
+        - generic [ref=e183]:
+          - generic [ref=e184]: パーマ
+          - generic [ref=e185]: ブライダル
+          - generic [ref=e186]: アレンジ
+  - generic [ref=e188]:
+    - generic [ref=e189]:
+      - paragraph [ref=e190]: Access & Hours
+      - heading "アクセス・営業時間" [level=2] [ref=e191]
+    - generic [ref=e193]:
+      - iframe [ref=e195]
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - paragraph [ref=e198]: 住所
+          - paragraph [ref=e199]:
+            - text: 〒107-0062
+            - strong [ref=e200]: 東京都港区南青山 3-0-0
+            - text: 表参道ハウス 2F
+        - generic [ref=e201]:
+          - paragraph [ref=e202]: アクセス
+          - paragraph [ref=e203]:
+            - text: 東京メトロ 銀座線 / 千代田線 / 半蔵門線
+            - strong [ref=e204]: 「表参道」駅 A4出口
+            - text: 徒歩 5分
+        - generic [ref=e205]:
+          - paragraph [ref=e206]: 営業時間
+          - generic [ref=e207]:
+            - generic [ref=e208]: 月・火
+            - generic [ref=e209]: 定休日
+          - generic [ref=e210]:
+            - generic [ref=e211]: 水 〜 金
+            - generic [ref=e212]: 11:00 〜 20:00
+          - generic [ref=e213]:
+            - generic [ref=e214]: 土
+            - generic [ref=e215]: 10:00 〜 20:00
+          - generic [ref=e216]:
+            - generic [ref=e217]: 日・祝
+            - generic [ref=e218]: 10:00 〜 19:00
+          - paragraph [ref=e219]: 最終受付は閉店 1 時間前です。
+        - generic [ref=e220]:
+          - link "03-0000-0000" [ref=e221] [cursor=pointer]:
+            - /url: tel:03-0000-0000
+          - link "メールで予約" [ref=e222] [cursor=pointer]:
+            - /url: mailto:info@amie-salon.jp
+  - contentinfo [ref=e223]:
+    - generic [ref=e224]:
+      - generic [ref=e225]: AMIE
+      - list [ref=e226]:
+        - listitem [ref=e227]:
+          - link "Menu" [ref=e228] [cursor=pointer]:
+            - /url: "#menu"
+        - listitem [ref=e229]:
+          - link "Gallery" [ref=e230] [cursor=pointer]:
+            - /url: "#gallery"
+        - listitem [ref=e231]:
+          - link "Staff" [ref=e232] [cursor=pointer]:
+            - /url: "#staff"
+        - listitem [ref=e233]:
+          - link "Access" [ref=e234] [cursor=pointer]:
+            - /url: "#access"
+        - listitem [ref=e235]:
+          - link "Instagram" [ref=e236] [cursor=pointer]:
+            - /url: "#"
+    - paragraph [ref=e237]: © 2024 AMIE HAIR SALON. All rights reserved.
