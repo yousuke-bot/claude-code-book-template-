@@ -1,36 +1,60 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+このファイルはClaude Codeがこのリポジトリで作業する際の指示書です。
 
-## Development
+## このプロジェクトについて
 
-There is no build step or package manager. Serve the project root with any static HTTP server:
+Web制作会社「WebStudio」のWebサイト・ツール開発リポジトリです。
+クライアント向けWebサイト制作・保守管理・SEO対策・AI秘書ツールを開発します。
+
+## 開発環境の起動
+
+ビルド不要。以下のコマンドでローカルサーバーを起動してください：
 
 ```bash
 npx http-server . -p 8080
 ```
 
-Then open http://localhost:8080 in a browser.
+ブラウザで http://localhost:8080 を開く。
 
-## Architecture
+## ディレクトリ構成
 
-The game is implemented in two files:
+```
+/
+├── company/        # 会社紹介ページ（ポートフォリオ）
+│   └── index.html
+├── ai-secretary/   # AI秘書ツール（開発予定）
+├── clients/        # クライアント別サイト（納品物）
+└── index.html      # トップページ
+```
 
-- **index.html** — layout, CSS, and HUD elements (`#score`, `#lives`, `#level`, `#message`, `#restart-btn`). All styling is inline in `<style>`.
-- **main.js** — all game logic, no external dependencies.
+## 開発ルール
 
-### main.js structure
+### HTML/CSS
+- 外部ライブラリは使わない（依存なしのシンプル構成）
+- スマートフォン対応（レスポンシブ）を必ず入れる
+- フォントは `'Hiragino Sans', 'Yu Gothic', sans-serif` を使う
 
-| Symbol | Role |
+### デザイン
+- カラー変数を使う（`--primary`, `--accent`, `--gray` など）
+- シンプル・モダンなデザインを基本とする
+- アニメーションは控えめに（`transition: 0.2s` 程度）
+
+### コード
+- コメントは日本語で書く
+- ファイルは機能ごとにフォルダ分けする
+
+## 各ページの目的
+
+| ページ | 目的 |
 |---|---|
-| `state` | Single object holding all mutable game data: `ball`, `paddleX/W`, `blocks[]`, `lives`, `score`, `level`, `launched`, `over`, `won` |
-| `initState(level)` | Resets `state`, builds block grid, seeds ball with level-scaled speed |
-| `update()` | Per-frame logic: input → ball physics → collision detection → fall/win checks |
-| `draw()` | Clears canvas, renders blocks / paddle / ball each frame |
-| `loop()` | `update()` + `draw()` + `requestAnimationFrame(loop)` |
+| `company/index.html` | 会社紹介・サービス案内・問い合わせ |
+| `ai-secretary/` | スケジュール管理AI秘書ツール |
+| `clients/` | クライアント納品サイト管理 |
 
-**Block collision** uses AABB overlap: compares X-overlap vs Y-overlap to decide whether to invert `vx` or `vy`.
+## 今後の開発予定
 
-**Paddle reflection** maps hit position `[-1, 1]` to an angle (max ±60°) using `sin/cos`, preserving ball speed magnitude.
-
-**Level progression**: each level increases ball speed by `0.5` and shrinks paddle width by `5px` (min 40px).
+1. AI秘書ツール（Claude API連携・スケジュール管理）
+2. 会社紹介ページの会社名・料金・実績を実際の情報に更新
+3. Netlifyへのデプロイ設定
+4. お問い合わせフォームのメール送信機能

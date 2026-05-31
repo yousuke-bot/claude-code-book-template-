@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web制作・保守管理・SEO対策のことならWebStudioへ。クライアントの課題を解決するWebサイトを制作します。">
+  <title>WebStudio | Web制作・SEO対策・保守管理</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #0a0a0a;
+      --accent: #2563eb;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --border: #e5e7eb;
+    }
+
+    body {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      color: var(--primary);
+      line-height: 1.7;
+    }
+
+    /* ナビ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--primary); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+    }
+
+    /* ヒーロー */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(135deg, #f0f4ff 0%, #fff 60%);
+    }
+
+    .hero-inner h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-inner h1 span { color: var(--accent); }
+
+    .hero-inner p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-outline { border: 2px solid var(--border); color: var(--primary); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* セクション共通 */
+    section { padding: 6rem 2rem; }
+
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--gray);
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* サービス */
+    #services { background: var(--light); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .service-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+    .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+    .service-card p { color: var(--gray); font-size: 0.9rem; }
+
+    /* 実績 */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .work-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    .work-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+    .work-thumb {
+      height: 180px;
+      background: linear-gradient(135deg, #dbeafe, #ede9fe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .work-info { padding: 1.25rem; }
+
+    .work-tag { font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem; }
+
+    .work-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+
+    .work-info p { color: var(--gray); font-size: 0.85rem; }
+
+    /* 料金 */
+    #pricing { background: var(--light); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .pricing-card.featured { border-color: var(--accent); position: relative; }
+
+    .featured-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 1rem;
+      border-radius: 99px;
+    }
+
+    .pricing-card h3 { font-size: 1rem; color: var(--gray); margin-bottom: 0.75rem; }
+
+    .price { font-size: 2rem; font-weight: 800; margin-bottom: 0.25rem; }
+
+    .price-note { font-size: 0.8rem; color: var(--gray); margin-bottom: 1.5rem; }
+
+    .pricing-card ul { list-style: none; text-align: left; margin-bottom: 2rem; }
+
+    .pricing-card li {
+      padding: 0.4rem 0;
+      font-size: 0.9rem;
+      color: var(--gray);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-card li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+
+    /* 問い合わせ */
+    #contact { background: var(--primary); color: #fff; text-align: center; }
+    #contact .section-title { color: #fff; }
+    #contact .section-desc { color: #9ca3af; margin: 0 auto 2.5rem; }
+
+    .contact-form { max-width: 480px; margin: 0 auto; text-align: left; }
+
+    .form-group { margin-bottom: 1.25rem; }
+
+    label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: #d1d5db; }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      background: #111827;
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); }
+
+    textarea { height: 120px; resize: vertical; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .submit-btn:hover { opacity: 0.85; }
+
+    /* フッター */
+    footer {
+      background: #050505;
+      color: #6b7280;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="logo">WebStudio</a>
+    <ul>
+      <li><a href="#services">サービス</a></li>
+      <li><a href="#works">実績</a></li>
+      <li><a href="#pricing">料金</a></li>
+      <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-inner">
+      <h1>ビジネスを成長させる<br><span>Webサイト</span>を作ります</h1>
+      <p>制作から保守管理・SEO対策まで一貫してサポート。クライアントの課題を解決するWebサイトを提供します。</p>
+      <div class="btn-group">
+        <a href="#contact" class="btn btn-primary">無料相談はこちら</a>
+        <a href="#works" class="btn btn-outline">制作実績を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">サービス内容</h2>
+      <p class="section-desc">Web制作に必要なことをまとめてお任せいただけます。</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3>Webサイト制作</h3>
+          <p>ビジネスの目標に合わせたデザイン・開発。スマートフォン対応（レスポンシブ）も標準対応。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3>SEO対策</h3>
+          <p>検索エンジンで上位表示を目指すための施策。キーワード選定から内部対策・コンテンツ改善まで。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛠️</div>
+          <h3>保守・管理</h3>
+          <p>公開後のサイト更新・セキュリティ対応・バックアップなど、安心して運用できるようサポート。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>アクセス解析</h3>
+          <p>Google Analyticsを活用した月次レポート。データに基づいてサイト改善の提案を行います。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛒</div>
+          <h3>ECサイト構築</h3>
+          <p>ネットショップの立ち上げから運用まで対応。決済システムの導入もサポートします。</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💬</div>
+          <h3>無料相談</h3>
+          <p>「何から始めればいいかわからない」という方もお気軽にご相談ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="section-inner">
+      <p class="section-label">Works</p>
+      <h2 class="section-title">制作実績</h2>
+      <p class="section-desc">これまでに制作したWebサイトの一部をご紹介します。</p>
+      <div class="works-grid">
+        <div class="work-card">
+          <div class="work-thumb">🏠</div>
+          <div class="work-info">
+            <p class="work-tag">不動産 / コーポレートサイト</p>
+            <h3>○○不動産株式会社</h3>
+            <p>SEO対策・問い合わせフォーム設置・月次レポート</p>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb">🍽️</div>
+          <div class="work-info">
+            <p class="work-tag">飲食 / 店舗サイト</p>
+            <h3>レストラン○○</h3>
+            <p>メニュー管理・予約フォーム・Instagram連携</p>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb">💼</div>
+          <div class="work-info">
+            <p class="work-tag">士業 / コーポレートサイト</p>
+            <h3>○○法律事務所</h3>
+            <p>SEO対策・問い合わせ導線の最適化</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="section-inner">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-desc">ビジネスの規模に合わせてお選びいただけます。</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>ライトプラン</h3>
+          <div class="price">¥150,000〜</div>
+          <div class="price-note">制作費（税別）</div>
+          <ul>
+            <li>ページ数：5ページまで</li>
+            <li>レスポンシブ対応</li>
+            <li>問い合わせフォーム</li>
+            <li>基本SEO設定</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="display:block;text-align:center;">相談する</a>
+        </div>
+        <div class="pricing-card featured">
+          <div class="featured-badge">人気</div>
+          <h3>スタンダードプラン</h3>
+          <div class="price">¥300,000〜</div>
+          <div class="price-note">制作費（税別）</div>
+          <ul>
+            <li>ページ数：10ページまで</li>
+            <li>レスポンシブ対応</li>
+            <li>問い合わせフォーム</li>
+            <li>SEO対策込み</li>
+            <li>アクセス解析設定</li>
+            <li>公開後1ヶ月サポート</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="display:block;text-align:center;">相談する</a>
+        </div>
+        <div class="pricing-card">
+          <h3>保守管理プラン</h3>
+          <div class="price">¥30,000〜</div>
+          <div class="price-note">月額（税別）</div>
+          <ul>
+            <li>月次更新対応</li>
+            <li>セキュリティ対応</li>
+            <li>バックアップ</li>
+            <li>月次レポート</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="display:block;text-align:center;">相談する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label" style="color:#60a5fa;">Contact</p>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-desc">まずはお気軽にご相談ください。通常2営業日以内にご返信します。</p>
+      <form class="contact-form">
+        <div class="form-group">
+          <label>お名前</label>
+          <input type="text" placeholder="山田 太郎">
+        </div>
+        <div class="form-group">
+          <label>メールアドレス</label>
+          <input type="email" placeholder="example@email.com">
+        </div>
+        <div class="form-group">
+          <label>ご相談内容</label>
+          <select>
+            <option>Webサイト制作</option>
+            <option>SEO対策</option>
+            <option>保守・管理</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>メッセージ</label>
+          <textarea placeholder="ご要望やご質問をお書きください"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 WebStudio. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
